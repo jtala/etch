@@ -58,28 +58,27 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-  // Take keypress and play corresponding sound.
-  // Adds a playing class to that div.
-  window.addEventListener('keydown', (e) => {
 
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const currentButton = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+// Objective: We want the button click to play a sound.
 
-    if (!audio) return;
-    audio.currentTime = 0;
+window.addEventListener('keydown', (e) =>{
 
-    currentButton.classList.add("playing");
-    audio.play();
-  });
+  // 1. Get data-key, and play corresponding audio.
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"`);
+  const keys = document.querySelector(`.key[data-key="${e.keyCode}"`);
+
+  // Check to remove values that don't have audio.
+  if (!audio) return;
+
+  // Plays sound
+  audio.currentTime = 0;
+  audio.play();
+
+  // Colors the box.
+  keys.classList.add('playing');
+})
 
 
-function removeTransition (e) {
-  this.classList.remove('playing');
-}
-
-
-const keys = document.querySelectorAll(".key");
-keys.forEach(key => key.addEventListener("transitionend", removeTransition));
 
 </script>
 
