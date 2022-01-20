@@ -1,28 +1,5 @@
 # etch
 
-30 Day Vanilla JS Challenge
-
-Drumkit -> Days spent: 2
-    Day began - 10/26
-    Notes:
-        I am comfortable setting up the event click to play the sounds, but not with adding and removing classes.
-
-window.addEventListener('keydown', (e) => {
-
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const currentButton = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-
-    if (!audio) return;
-    audio.currentTime = 0;
-
-    currentButton.classList.add("playing");
-    audio.play();
-});
+Galton Board
 
 
-function removeTransition (e) {
-  this.classList.remove('playing');
-}
-
-const keys = document.querySelectorAll(".key");
-keys.forEach(key => key.addEventListener("transitionend", removeTransition));
